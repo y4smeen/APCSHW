@@ -18,3 +18,46 @@ public int diff21(int n) {
 	    return x;
 	}
 }
+
+public boolean nearHundred(int n) {
+	if (Math.abs(n - 100) <= 10 || Math.abs(n - 200) <= 10) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+public boolean mixStart(String str) {
+	if (str.length() >= 3) {
+		String x = str.substring(1,3);
+		if (x.equals("ix")) {
+		return true;
+		}
+		else{
+		return false;
+		}
+	}
+	else {
+		return false;
+	}
+}
+
+public int teaParty(int tea, int candy) {
+	if (tea < 5 || candy < 5) {
+		return 0;
+	}
+	else if ((tea/candy) >= 2 || (candy/tea) >= 2) {
+		return 2;
+	}
+	else {
+		return 1;
+	}
+}
+
+public boolean lastDigit(int a, int b, int c) {
+	int x = a%10;
+	int xx = b%10;
+	int xxx = c%10;
+	return (x==xx||x==xxx||xx==xxx);
+}
