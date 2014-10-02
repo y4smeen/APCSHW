@@ -32,21 +32,22 @@ public class Shapes {
 
     public String tri2(int h){
 	String x = "";
-	int c = 1;
-	while (c <= h) {
+	int t = 1;
+	while (h > 0) {
+	    int s = h - 1;
 	    int cc = 0;
-	    int d = h - c;
-	    while (cc < d) {
+	    while (s > 0) {
 		x += " ";
-		cc += 1;
+		s -= 1;
 	    }
-	    int e = 1;
-	    while (e <= c) {
+	    while (t > 0) {
 		x += "*";
-		e += 1;
+		t -= 1;
 	    }
 	    x += "\n";
+	    h -= 1;
 	    c += 1;
+	    t = c; 
 	}
 	return x;
     }
