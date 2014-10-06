@@ -1,0 +1,4 @@
+public class Frame{
+    public String frame(int r, int c){
+	String x = "";
+	for(r
