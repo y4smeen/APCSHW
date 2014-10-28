@@ -66,7 +66,7 @@ public class  Arraystuff {
     
     public int freq(int i){
     	int y = 0;
-    	for (int x = 0; i < a.length; i++){
+    	for (int x = 0; i < a.length; x++){
     		if (a[x]==i){
     			y++;
     		}
