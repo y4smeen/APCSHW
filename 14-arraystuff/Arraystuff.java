@@ -64,4 +64,14 @@ public class  Arraystuff {
     	return x;
     }
     
+    public int freq(int i){
+    	int y = 0;
+    	for (int x = 0; i < a.length; i++){
+    		if (a[x]==i){
+    			y++;
+    		}
+    	}
+    	return y;
+    }
+    
 }
