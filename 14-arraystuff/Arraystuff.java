@@ -41,8 +41,17 @@ public class  Arraystuff {
 	
     }
     
-    public int find(n){
-    
+    public int find(int n){
+    	int x;
+    	for (x = 0; x < a.length; x++){
+    		if (a[x] == n){
+    			return x;
+    		}
+    		else {
+    			x = -1;
+    			return x;
+    		}
+    	}
     }
     
 }
