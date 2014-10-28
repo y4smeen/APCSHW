@@ -48,10 +48,20 @@ public class  Arraystuff {
     			return x;
     		}
     		else {
-    			x = -1;
-    			return x;
+    			return -1;
     		}
     	}
+    }
+    
+    public int maxVal(){
+    	int x = a[0];
+    	int i;
+    	for (i = 0; i < a.length; i++){
+    		if (a[i] > x){
+    			x = a[i];
+    		}
+    	}
+    	return x;
     }
     
 }
