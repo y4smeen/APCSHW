@@ -16,3 +16,16 @@ public int sum67(int[] nums) {
   }
   return sum;
 }
+public boolean more14(int[] nums) {
+  int o=0;
+  int f=0;
+  for (int i=0; i<nums.length; i++){
+  if (nums[i]==1){
+  o++;
+  }
+  if (nums[i]==4){
+  f++;
+  }
+  }
+  return o > f;
+}
