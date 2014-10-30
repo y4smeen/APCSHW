@@ -29,3 +29,14 @@ public boolean more14(int[] nums) {
   }
   return o > f;
 }
+public boolean tripleUp(int[] nums) {
+  int count = 0;
+  boolean x = false;
+  for (count = 0; count <= nums.length-3; count ++){
+  if (nums[count+1] == nums[count] + 1 && nums[count+2] == nums[count] + 2){
+  x = true;
+  }
+  }
+  return x;
+}
+
