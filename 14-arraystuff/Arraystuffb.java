@@ -29,6 +29,21 @@ public boolean more14(int[] nums) {
   }
   return o > f;
 }
+public int[] tenRun(int[] nums) {
+  int x = 0;
+  boolean state = false;
+  for (int counter = 0; counter < nums.length; counter ++){
+    if (nums[counter]%10 == 0){
+    state = true;
+    x = nums[counter];  
+    }
+    if (state == true){
+    nums[counter] = x;     
+    }
+  }
+  
+  return nums;
+}
 public boolean tripleUp(int[] nums) {
   int count = 0;
   boolean x = false;
