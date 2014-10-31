@@ -64,3 +64,20 @@ public boolean tripleUp(int[] nums) {
 	}
 	return x;
   }
+public int maxMirror(int[] nums) {
+	int x = 0;
+	for(int i = 0; i < nums.length; i++) {
+	int count = 0;
+	for(int j = nums.length-1; j >= 0 && i + count < nums.length; j--) {
+	if(nums[i + count] == nums[j]) {
+	count++;
+	} 
+	else {
+	x = Math.max(x, count);
+	count = 0;
+	}
+	}
+	x = Math.max(m, count);
+	}
+	return x;
+    }
