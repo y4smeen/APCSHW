@@ -1,0 +1,25 @@
+public class SuperArray {
+    int[] data;
+    int last;
+
+    public SuperArray() {
+	data = new int[1];
+	last = 0;
+    }
+
+    public boolean add(int i) {
+	if (last == data.length) {
+	    int[] newdata = new int[data.length*2];
+	    for (int i = 0; i < data.length; i++) {
+		newdata[i] = data[i];
+	    }
+	}
+	    data = newdata;
+	    data[last + 1] = i;
+	    last++;
+	    return true;
+    }
+
+    public static void main(String[] args) {
+	SuperArray s = new SuperArray();
+}
