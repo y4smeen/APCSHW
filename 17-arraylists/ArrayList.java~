@@ -6,22 +6,16 @@ public class ArrayList {
 		ArrayList<Integer> ai = new ArrayList<Integer>();
 
 		Random r = new Random();
+
 		for (int i = 0; i < 20; i++) {
-				ai.add(r.nextInt(5));
-		}
-		
-		ArrayList<Integer aj = new ArrayList<Integer>();
-		
-		for (int k = 0; aj.size() < ai.size(); k++) {
-		    int current = 0;
-		    if (ai.get(k) == current) {
-			aj.add(ai.get(k));
-		    }
-		    if (ai.indexOf(current) == -1) {
-			current++;
-		    }
+				ai.add(i);
 		}
 
+		List<Integer> x = new ArrayList<Integer>(ai);
+
+		for (int j = 0; j < ai.size(); j++) {
+		    x.add(ai.get(r.nextInt(
+		
 		    
     }
 }

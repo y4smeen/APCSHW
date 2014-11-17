@@ -13,8 +13,11 @@ public class ArrayList {
 
 		List<Integer> x = new ArrayList<Integer>(ai);
 
-		for (int j = 0; j < ai.size(); j++) {
-		    x.add(ai.get(r.nextInt(
+		for (int j = ai.size(); j > 0; j--) {
+		    int p = r.nextInt(j);
+		    x.add(ai.get(p);
+		    ai.remove(p);
+       		}
 		
 		    
     }
