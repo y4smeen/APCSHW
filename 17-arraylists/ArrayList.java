@@ -15,10 +15,11 @@ public class ArrayList {
 
 		for (int j = ai.size(); j > 0; j--) {
 		    int p = r.nextInt(j);
-		    x.add(ai.get(p);
+		    x.add(ai.get(p));
 		    ai.remove(p);
        		}
 		
+		System.out.println(ai);
 		    
     }
 }
