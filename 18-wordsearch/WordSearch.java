@@ -26,12 +26,50 @@ public class WordSearch {
     }
 
     public void addWordH(String w, int row, int col){
+	//indexCheck(row);
+	//indexCheck(col);
 	int c = col;
+	int l = w.length();
+	if (row < 0 || row > board.length){
+	    throw new IndexOutOfBoundsException();
+	}
+	if (col < 0 || col + l > board[0].length){
+	    throw new IndexOutOfBoundsException();
+	}
+	
 	for (int i = 0; i < w.length(); i++){
-	    board[row][c] = w.charAt(i);
+	    if (board[row][c] != w.charAt(i) && board[row][c] != '.'){
+		throw new ArithmeticException();
+	    }
+	    else {
+		board[row][c] = w.charAt(i);
+		c++;
+	    }
 	}
     }
 
+    public void addWordB(String w, int row, int col){
+	int c = col;
+	int l = w.length();
+	if (row < 0 || row > board.length){
+	    throw new IndexOutOfBoundsException();
+	}
+	if (col - l < -1 || col > board[0].length){
+	    throw new IndexOutOfBoundsException();
+	}
+	
+	for (int i = 0; i < w.length(); i++){
+	    if (board[row][c] != w.charAt(i) && board[row][c] != '.'){
+		throw new ArithmeticException();
+	    }
+	    else {
+		board[row][c] = w.charAt(i);
+		c--;
+	    }
+	}
+    }
+
+    /*
     public void indexCheck(int i){
 	try{
 	    if (i < 0){
@@ -39,15 +77,17 @@ public class WordSearch {
 	    }
 	} catch (Exception e){}
     }
+    */
 
     public static void main(String[] args){
 	WordSearch w = new WordSearch();
 	System.out.println(w);
 	w.addWordH("hello",3,15); //should work
-	w.addWordH("look",3,14); //test illegal overlap
 	//w.addWordH("look",3,18); //test illegal overlap
-          w.addWordH("look",-3,20); //test illegal row
+	//w.addWordH("look",3,18); //test illegal overlap
+        //w.addWordH("look",-3,20); //test illegal row
 	//w.addWordH("look",3,55); //test illegal col
+	w.addWordB("troll",3,21);
 	//etc
 	System.out.println(w);
         
