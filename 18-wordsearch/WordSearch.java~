@@ -32,24 +32,15 @@ public class WordSearch {
 	}
     }
 
-    public void indexCheck(int i){
-	try{
-	    if (i < 0){
-		throw new IndexOutOfBoundsException();
-	    }
-	} catch (Exception e){}
-    }
-
     public static void main(String[] args){
 	WordSearch w = new WordSearch();
 	System.out.println(w);
 	w.addWordH("hello",3,15); //should work
 	w.addWordH("look",3,14); //test illegal overlap
 	//w.addWordH("look",3,18); //test illegal overlap
-          w.addWordH("look",-3,20); //test illegal row
+	//w.addWordH("look",-3,20); //test illegal row
 	//w.addWordH("look",3,55); //test illegal col
 	//etc
 	System.out.println(w);
-        
     }
 }
