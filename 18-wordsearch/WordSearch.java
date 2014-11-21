@@ -120,6 +120,8 @@ public class WordSearch {
         //w.addWordH("look",-3,20); //test illegal row
 	//w.addWordH("look",3,55); //test illegal col
 	w.addWordB("troll",3,21);
+	w.addWordV("omg",5,8);
+	w.addWordVB("nope",10,10);
 	//etc
 	System.out.println(w);
         
