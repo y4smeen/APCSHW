@@ -69,15 +69,47 @@ public class WordSearch {
 	}
     }
 
-    /*
-    public void indexCheck(int i){
-	try{
-	    if (i < 0){
-		throw new IndexOutOfBoundsException();
+    public void addWordV(String w, int row, int col){
+	int c = col;
+	int l = w.length();
+	if (row < 0 || row > board.length){
+	    throw new IndexOutOfBoundsException();
+	}
+	if (col < 0 || col + l > board[0].length){
+	    throw new IndexOutOfBoundsException();
+	}
+	
+	for (int i = 0; i < w.length(); i++){
+	    if (board[row][c] != w.charAt(i) && board[row][c] != '.'){
+		throw new ArithmeticException();
 	    }
-	} catch (Exception e){}
+	    else {
+		board[row][c] = w.charAt(i);
+		row++;
+	    }
+	}
     }
-    */
+
+    public void addWordVB(String w, int row, int col){
+	int c = col;
+	int l = w.length();
+	if (row < 0 || row > board.length){
+	    throw new IndexOutOfBoundsException();
+	}
+	if (col < 0 || col + l > board[0].length){
+	    throw new IndexOutOfBoundsException();
+	}
+	
+	for (int i = 0; i < w.length(); i++){
+	    if (board[row][c] != w.charAt(i) && board[row][c] != '.'){
+		throw new ArithmeticException();
+	    }
+	    else {
+		board[row][c] = w.charAt(i);
+		row--;
+	    }
+	}
+    }
 
     public static void main(String[] args){
 	WordSearch w = new WordSearch();
