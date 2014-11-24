@@ -1,8 +1,5 @@
 import java.util.Random;
-/**
- * Creates a word search puzzle
- *
- */
+
 public class WordSearch1{
 
     private char[][] board;
@@ -17,8 +14,9 @@ public class WordSearch1{
 	}
 	
     }
+
     public WordSearch1(){
-	this(30,30);
+	this(50,50);
     }
 
     public String toString(){
@@ -34,7 +32,7 @@ public class WordSearch1{
     }
 
 		
-    public boolean addWordHelper(String w,int row, int col,int deltaRow, int deltaCol){
+    public boolean addWordHelper(String w,int row, int col,int dr, int dc){
 	int r = row, c = col;
 				
 	for (int i=0;i<w.length();i++){
@@ -45,8 +43,8 @@ public class WordSearch1{
 	    } catch ( Exception e){
 		return false;
 	    }
-	    r = r + deltaRow;
-	    c = c + deltaCol;
+	    r = r + dr;
+	    c = c + dc
 	}
 
 	r = row;
@@ -54,8 +52,8 @@ public class WordSearch1{
 
 	for (int i=0;i<w.length();i++){
 	    board[r][c] = w.charAt(i);
-	    r = r + deltaRow;
-	    c=c+deltaCol;
+	    r = r + dr;
+	    c = c + dc;
 	}
 	return true;
     }
@@ -64,38 +62,62 @@ public class WordSearch1{
     public boolean addWord(String w) {
 	int row = r.nextInt(board.length);
 	int col = r.nextInt(board[0].length);
-	int deltaRow = -1 + r.nextInt(3);
-	int deltaCol = -1 + r.nextInt(3);
-	if (deltaRow == deltaCol && deltaCol == 0)
+	int dr = -1 + r.nextInt(3);
+	int dc = -1 + r.nextInt(3);
+	if (dr == dc && dc == 0)
 	    return false;
-	return addWordHelper(w,row,col,deltaRow,deltaCol);
+	return addWordHelper(w,row,col,dr,dc);
     }
-	
+
+    public void fillBoard() {
+	String alph = "abcdefghijklmnopqrstuvwxyz";
+	Random loc = new Random();
+	for (int b = 0; b < board.length; b++) {
+	    for (int d = 0; d < board[b].length; d++) {
+		if (board[b][d] == '.') {
+		    board[b][d] = alph.charAt(loc.nextInt(26));
+		}
+	    }
+	}
+    }
 
     public static void main(String[] args) {
-	WordSearch1 w = new WordSearch1(20,20);
-	System.out.println(w);
+	WordSearch1 w = new WordSearch1(40,40);
+	//System.out.println(w);
 	//w.addWord("hello",3,5,1,0);
 	//w.addWord("hello",10,10,-1,0);
 	//w.addWord("down",2,2,1,1);
 	//w.addWord("upply",15,15,-1,-1);
 	//w.addWord("diagoneway",25,13,-1,1);
-	w.addWord("one");
-	w.addWord("one");
-	w.addWord("one");
-	w.addWord("one");
-	w.addWord("one");
-	w.addWord("one");
-	w.addWord("one");
-	w.addWord("one");
-	
-
-	
+	//w.addWord("one");
+	//w.addWord("one");
+	//w.addWord("one");
+	//w.addWord("one");
+	//w.addWord("one");
+	//w.addWord("one");
+	//w.addWord("one");
+	//w.addWord("one");
 	//w.addWordH("look",3,8,);
 	//w.addWordH("look",3,5);
 	//w.addWordH("hello",100,5);
 	//w.addWordH("hello",30,555);
-				
+
+	/* ----- read file && fill board ----- */
+
+	    Scanner sc = null;
+	    try {
+		sc = new Scanner(new File("words.txt"));
+	    } catch (Exception e) {
+		System.out.println("Can't open file");
+		System.exit(0);
+	    }
+	    while (sc.hasNext()) {
+		String s = sc.next();
+		//System.out.println("Next Line: " + s);
+		w.addWord(s);
+	    }
+	    w.fillBoard();
+
 	System.out.println(w);
     }
 }
