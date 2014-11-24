@@ -201,8 +201,18 @@ public class WordSearch {
     
     public boolean addWord(String w){
     	Random r = new Random();
-    	boolean y = false;
-    	//for (int i = 0; i <)
+    	boolean y = true;
+    	int a = r.nextInt(8);
+    	int b = r.nextInt(20);
+    	int c = r.nextInt(40);
+    	if (a == 0) addWordH(w,b,c);
+    	if (a == 1) addWordB(w,b,c);
+    	if (a == 2) addWordV(w,b,c);
+    	if (a == 3) addWordVB(w,b,c);
+    	if (a == 4) addWordDUR(w,b,c);
+    	if (a == 5) addWordDUL(w,b,c);
+    	if (a == 6) addWordDDR(w,b,c);
+    	if (a == 7) addWordDDL(w,b,c);
     	return y;
     }
     
