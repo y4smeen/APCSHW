@@ -16,7 +16,7 @@ public class WordSearch1{
     }
 
     public WordSearch1(){
-	this(50,50);
+	this(40,40);
     }
 
     public String toString(){
