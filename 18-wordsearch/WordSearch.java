@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.*;
+
 public class WordSearch {
     private char[][] board;
 
@@ -26,8 +29,6 @@ public class WordSearch {
     }
 
     public void addWordH(String w, int row, int col){
-	//indexCheck(row);
-	//indexCheck(col);
 	int c = col;
 	int l = w.length();
 	if (row < 0 || row > board.length){
@@ -195,6 +196,27 @@ public class WordSearch {
 		c--;
 		row++;
 	    }
+	}
+    }
+    
+    public boolean addWord(String w){
+    	Random r = new Random();
+    	boolean y = false;
+    	//for (int i = 0; i <)
+    	return y;
+    }
+    
+    public void ReadFile(){
+    	Scanner sc = null;
+    	try {
+	    sc = new Scanner(new File("words.txt"));
+	} catch (Exception e) {
+	    System.out.println("Can't open file");
+	    System.exit(0);
+	}
+	while (sc.hasNext()) {
+	    String s = sc.next();
+	    System.out.println("Next Line: " + s);
 	}
     }
 
