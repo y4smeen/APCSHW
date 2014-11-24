@@ -110,6 +110,93 @@ public class WordSearch {
 	    }
 	}
     }
+    public void addWordDUR(String w, int row, int col){
+	int c = col;
+	int l = w.length();
+	if (row < 0 || row > board.length){
+	    throw new IndexOutOfBoundsException();
+	}
+	if (col < 0 || col + l > board[0].length){
+	    throw new IndexOutOfBoundsException();
+	}
+	
+	for (int i = 0; i < w.length(); i++){
+	    if (board[row][c] != w.charAt(i) && board[row][c] != '.'){
+		throw new ArithmeticException();
+	    }
+	    else {
+		board[row][c] = w.charAt(i);
+		c++;
+		row--;
+	    }
+	}
+    }
+    
+    public void addWordDUL(String w, int row, int col){
+	int c = col;
+	int l = w.length();
+	if (row < 0 || row > board.length){
+	    throw new IndexOutOfBoundsException();
+	}
+	if (col - l< 0 || col > board[0].length){
+	    throw new IndexOutOfBoundsException();
+	}
+	
+	for (int i = 0; i < w.length(); i++){
+	    if (board[row][c] != w.charAt(i) && board[row][c] != '.'){
+		throw new ArithmeticException();
+	    }
+	    else {
+		board[row][c] = w.charAt(i);
+		c--;
+		row--;
+	    }
+	}
+    }
+
+    public void addWordDDR(String w, int row, int col){
+	int c = col;
+	int l = w.length();
+	if (row < 0 || row > board.length){
+	    throw new IndexOutOfBoundsException();
+	}
+	if (col < 0 || col + l > board[0].length){
+	    throw new IndexOutOfBoundsException();
+	}
+	
+	for (int i = 0; i < w.length(); i++){
+	    if (board[row][c] != w.charAt(i) && board[row][c] != '.'){
+		throw new ArithmeticException();
+	    }
+	    else {
+		board[row][c] = w.charAt(i);
+		c++;
+		row++;
+	    }
+	}
+    }
+    
+    public void addWordDDL(String w, int row, int col){
+	int c = col;
+	int l = w.length();
+	if (row < 0 || row > board.length){
+	    throw new IndexOutOfBoundsException();
+	}
+	if (col - l < 0 || col > board[0].length){
+	    throw new IndexOutOfBoundsException();
+	}
+	
+	for (int i = 0; i < w.length(); i++){
+	    if (board[row][c] != w.charAt(i) && board[row][c] != '.'){
+		throw new ArithmeticException();
+	    }
+	    else {
+		board[row][c] = w.charAt(i);
+		c--;
+		row++;
+	    }
+	}
+    }
 
     public static void main(String[] args){
 	WordSearch w = new WordSearch();
