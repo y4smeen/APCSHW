@@ -44,7 +44,7 @@ public class WordSearch1{
 		return false;
 	    }
 	    r = r + dr;
-	    c = c + dc
+	    c = c + dc;
 	}
 
 	r = row;
