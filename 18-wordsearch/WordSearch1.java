@@ -1,5 +1,5 @@
 import java.util.Random;
-
+import java.io.File;
 public class WordSearch1{
 
     private char[][] board;
