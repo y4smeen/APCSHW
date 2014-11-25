@@ -3,17 +3,21 @@ import java.util.Scanner;
 import java.io.File;
 public class WordSearch1{
 
-    private char[][] board;
+    private char[][] board, key;
+    private ArrayList<String> words;
+    private ArrayList<String> wordsInPuzzle;
     Random r = new Random();
     
     public WordSearch1(int r, int c){
+	//rnd = new Random();
+	//words = new ArrayList<String>();
+	//Scanner sc = null;
 	board = new char[r][c];
 	for (int i = 0; i < board.length; i++) {
 	    for (int j = 0; j < board[i].length; j++) {
 		board[i][j]='.';
 	    }
 	}
-	
     }
 
     public WordSearch1(){
@@ -32,6 +36,14 @@ public class WordSearch1{
 	return s;
     }
 
+    private void makeKey() {
+	key = new char[board.length][board[0].length];
+	for (int i = 0; i < board.length; i++) {
+	    for (int j = 0; j < board[0].length; j++) {
+		key[i][j] = board[i][j];
+	    }
+	}
+    }
 		
     public boolean addWordHelper(String w,int row, int col,int dr, int dc){
 	int r = row, c = col;
@@ -70,6 +82,20 @@ public class WordSearch1{
 	return addWordHelper(w,row,col,dr,dc);
     }
 
+    public void buildPuzzle(int numwords) {
+	words = new ArrayList<String>();
+	int i = 0;
+	while (i > 0) {
+	    int wordIndex = rnd.nextInt(wordlist.size());
+	    String word = wordlist.get(wordIndex);
+	    if (addWord(word)) {
+		words.add(word);
+		wordlist.remove(wordIndex);
+		i++;
+	    }
+	}
+    }
+
     public void fillBoard() {
 	String alph = "abcdefghijklmnopqrstuvwxyz";
 	Random loc = new Random();
@@ -80,28 +106,11 @@ public class WordSearch1{
 		}
 	    }
 	}
+	//w.makeKey();
     }
 
     public static void main(String[] args) {
 	WordSearch1 w = new WordSearch1(20,40);
-	//System.out.println(w);
-	//w.addWord("hello",3,5,1,0);
-	//w.addWord("hello",10,10,-1,0);
-	//w.addWord("down",2,2,1,1);
-	//w.addWord("upply",15,15,-1,-1);
-	//w.addWord("diagoneway",25,13,-1,1);
-	//w.addWord("one");
-	//w.addWord("one");
-	//w.addWord("one");
-	//w.addWord("one");
-	//w.addWord("one");
-	//w.addWord("one");
-	//w.addWord("one");
-	//w.addWord("one");
-	//w.addWordH("look",3,8,);
-	//w.addWordH("look",3,5);
-	//w.addWordH("hello",100,5);
-	//w.addWordH("hello",30,555);
 
 	/* ----- read file && fill board ----- */
 
@@ -114,11 +123,11 @@ public class WordSearch1{
 	    }
 	    while (sc.hasNext()) {
 		String s = sc.next();
-		//System.out.println("Next Line: " + s);
 		w.addWord(s);
 	    }
 	    w.fillBoard();
-
+	    //w.makeKey();
+	    
 	System.out.println(w);
     }
 }
