@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 import java.io.File;
 public class WordSearch1{
 
