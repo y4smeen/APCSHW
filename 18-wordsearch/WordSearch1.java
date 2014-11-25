@@ -83,7 +83,7 @@ public class WordSearch1{
     }
 
     public static void main(String[] args) {
-	WordSearch1 w = new WordSearch1(25,40);
+	WordSearch1 w = new WordSearch1(20,40);
 	//System.out.println(w);
 	//w.addWord("hello",3,5,1,0);
 	//w.addWord("hello",10,10,-1,0);
