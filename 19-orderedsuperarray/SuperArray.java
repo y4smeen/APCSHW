@@ -71,6 +71,7 @@ public class SuperArray {
 
     public static void main(String[] args) {
 	SuperArray s = new SuperArray();
+	/*
 	s.add(2);
 	s.add(7);
 	s.add(26);
@@ -82,5 +83,6 @@ public class SuperArray {
 	System.out.println(Arrays.toString(s.data));
 	s.remove(2);
 	System.out.println(Arrays.toString(s.data));
+	*/
     }
 }
