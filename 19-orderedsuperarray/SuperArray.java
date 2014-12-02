@@ -1,34 +1,57 @@
 import java.util.*;
 
 public class SuperArray {
-    int[] data;
+    String[] data;
     int last;
 
     public SuperArray() {
-	data = new int[1];
+	data = new String[1];
 	last = -1;
     }
-
+    
     public String toString() {
-	return " ";
+	String x = ""; //x - "["
+	for (int i = 0; i < data.length-1; i++) {
+	    x += data[i] + ", "; 
+		//Integer.toString(data[i]) + ", ";
+	    //x += Integer.toString(data.get(i)) + (i == data.length - 1) ? "" : ", ";
+	}
+	//x += "]";
+	return "["+x+data[data.length-1]+"]";
     }
-
-    public boolean add(int i) {
+    
+    public boolean add(String i) {
 	if (last >= data.length-1) {
-	    int[] newdata = new int[data.length*2];
+	    String[] newdata = new String[data.length*2];
 	    for (int j = 0; j < data.length; j++) {
 		newdata[j] = data[j];
 	    }
 	    data = newdata;
 	}
-	data[last + 1] = i;
+	/*
+	  if i is larger than current
+	        move on
+	  if i is smaller than current
+	        add before
+	  if i is equal to current
+	        add after/before
+	*/
+	
+	for (int k = 0; k < last; k++) {
+	    if (i.compareTo(data[k]) >= 0) {
+		for (int m = last; m > k - 1; m--) {
+		    data[m + 1] = data[m];
+		}
+		data[k] = i;
+	    }
+	}
 	last++;
 	return true;
     }
-
-    public void add(int index, int i) {
+    /*
+    public void add(int index, String i) {
 	if (last >= data.length-1) {
-	    int[] newdata = new int[data.length*2];
+	    String[] newdata = new String[data.length*2];
 	    for (int j = 0; j < data.length; j++) {
 		newdata[j] = data[j];
 	    }
@@ -40,43 +63,44 @@ public class SuperArray {
 	data[index] = i;
 	last++;
     }
-
+    */
     public int size() {
 	return last + 1;
     }
 
-    public int get(int index) {
+    public String get(int index) {
 	return data[index];
     }
 
-    public int set(int index, int i) {
-	int old = data[index];
+    public String set(int index, String i) {
+	String old = data[index];
 	data[index] = i;
 	return old;
     }
 
-    public int remove(int index) {
-	int old = data[index];
+    public String remove(int index) {
+	String old = data[index];
+	//move stuff back
 	for (int i = index; i < last; i++) {
 	    data[i] = data[i + 1];
 	}
-	data[last] = 0;
+	data[last] = "";
 	last--;
 	return old;
     }
 
-    public int[] getData() {
+    public String[] getData() {
 	return data;
     }
 
     public static void main(String[] args) {
 	SuperArray s = new SuperArray();
-	/*
+        /*
 	s.add(2);
 	s.add(7);
 	s.add(26);
 	s.add(2,15);
-	System.out.println(Arrays.toString(s.data));
+	System.out.println("my toString: " + s.toString());
 	System.out.println(s.size());
 	System.out.println(s.get(2));
 	s.set(0,3);
@@ -84,5 +108,9 @@ public class SuperArray {
 	s.remove(2);
 	System.out.println(Arrays.toString(s.data));
 	*/
+	s.add("A");
+	s.add("B");
+	s.add("D");
+	s.add("E");
     }
 }

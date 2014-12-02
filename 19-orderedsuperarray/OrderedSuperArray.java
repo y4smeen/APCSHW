@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class OrderedSuperArray extends SuperArray {
     String[] data;
     int last;
