@@ -23,7 +23,32 @@ public class SuperArray {
 	//x += "]";
 	return "["+x+data[data.length-1]+"]";
     }
-    
+
+    public boolean add(String j) {
+	int len = data.length;
+	if (size() == len) {
+	    len++;
+	}
+	String[] newData = new String[len];
+	for (int ind = 0; ind < len; ind++) {
+	    newData[ind] = data[ind];
+	}
+	newData[size()] = w;
+	data = newData;
+	return true;
+    }
+
+    public int size() {
+	int result = 0;
+	boolean nc = false;
+	for (int i = data.length - 1; i >= 0; i--) {
+	    if (data[ind] != null) nc = true;
+	    if (nc) result++;
+	}
+	return result;
+    }
+
+    /*
     public boolean add(String i) {
 	if (last >= data.length-1) {
 	    String[] newdata = new String[data.length*2];
@@ -31,7 +56,7 @@ public class SuperArray {
 		newdata[j] = data[j];
 	    }
 	    data = newdata;
-	}
+	    }*/
 	/*
 	  if i is larger than current
 	        move on
@@ -40,7 +65,7 @@ public class SuperArray {
 	  if i is equal to current
 	        add after/before
 	*/
-	
+    /*
 	for (int k = 0; k < last; k++) {
 	    if (i.compareTo(data[k]) >= 0) {
 		for (int m = last; m > k - 1; m--) {
@@ -52,6 +77,7 @@ public class SuperArray {
 	last++;
 	return true;
     }
+*/
     /*
     public void add(int index, String i) {
 	if (last >= data.length-1) {
@@ -95,6 +121,9 @@ public class SuperArray {
 
     public String[] getData() {
 	return data;
+    }
+
+    public void isort() {
     }
 
     public static void main(String[] args) {
