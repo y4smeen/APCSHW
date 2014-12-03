@@ -5,12 +5,16 @@ public class SuperArray {
     int last;
 
     public SuperArray() {
-	data = new String[1];
+	this(1);
+	//data = new String[1];
 	last = -1;
+    }
+    public SuperArray(int a) {
+	data = new String[a];
     }
     
     public String toString() {
-	String x = ""; //x - "["
+	String x = ""; //x = "["
 	for (int i = 0; i < data.length-1; i++) {
 	    x += data[i] + ", "; 
 		//Integer.toString(data[i]) + ", ";

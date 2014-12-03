@@ -1,3 +1,0 @@
-public class orderedSuperArray extends SuperArray {
-    public boolean add(
-}
