@@ -141,7 +141,12 @@ public class SuperArray {
 	for (int i = 0; i <= last; i++) {
 	    int j;
 	    current = data[i];
-	    for (j = i; j > 0 && 
+	    int small = 0;
+	    for (j = i; j > 0 && data[small].compareTo(data[j]) < 0; j--) {
+		small = j;
+	    }
+	    if (current.compareTo(data[small]) < 0) {
+
 	
 
     public static void main(String[] args) {
