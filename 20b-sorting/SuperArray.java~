@@ -1,5 +1,5 @@
 import java.util.*;
-
+import java.io.*;
 public class SuperArray {
     String[] data;
     int last;
@@ -26,18 +26,16 @@ public class SuperArray {
 
     public boolean add(String j) {
 	int len = data.length;
-	if (size() == len) {
-	    len++;
-	}
+	if (size() == len) len++;
 	String[] newData = new String[len];
 	for (int ind = 0; ind < len; ind++) {
 	    newData[ind] = data[ind];
 	}
-	newData[size()] = w;
+	newData[size()] = j;
 	data = newData;
 	return true;
     }
-
+    /*
     public int size() {
 	int result = 0;
 	boolean nc = false;
@@ -47,7 +45,7 @@ public class SuperArray {
 	}
 	return result;
     }
-
+    */
     /*
     public boolean add(String i) {
 	if (last >= data.length-1) {
@@ -122,7 +120,7 @@ public class SuperArray {
     public String[] getData() {
 	return data;
     }
-    
+    /* 
     //insertion sort
     public void isort() {
 	//last = data.length-1;
@@ -130,16 +128,30 @@ public class SuperArray {
 	for (int i = 0; i <= last; i++) {
 	    int j;
 	    s = data[i];
-	    for(j = i; j > 0 && s.compareTo(data[j-1]) < 0; j--) {
+	    for (j = i; j > 0 && s.compareTo(data[j-1]) < 0; j--) {
 		data[j] = data[j-1];
 	    }
 	    data[j] = s;
 	}
     }
-
+    */
     //selection sort
     public void ssort() {
-
+	int i,j;
+	int min;
+	for (i = 0; i < data.length-1; i++) {
+	    min = i;
+	    for (j = i + 1; j < data.length; j++) {
+		if (data[j].compareTo(data[min]) > 0) {
+		    min = j;
+		}
+	    }
+	    if (min != i) {
+		swap(data[i], data[min]);
+	    }
+	}
+    }
+	
 
     public static void main(String[] args) {
 	SuperArray s = new SuperArray();
@@ -160,5 +172,9 @@ public class SuperArray {
 	s.add("B");
 	s.add("D");
 	s.add("E");
+	s.add("C");
+	s.ssort();
+	System.out.println(s.toString());
+
     }
 }
