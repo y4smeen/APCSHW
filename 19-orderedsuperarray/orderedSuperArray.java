@@ -8,7 +8,7 @@ public class orderedSuperArray extends SuperArray {
     public int findPlace(String w) {
 	int len = getData().length;
 	int result = len;
-	for (int ind = 0; int < len; ind++) {
+	for (int ind = 0; ind < len; ind++) {
 	    if (getData()[ind] == null || w.compareTo(getData()[ind]) <= 0) {
 		result = ind;
 		break;
