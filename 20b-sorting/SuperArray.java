@@ -12,12 +12,6 @@ public class SuperArray {
     public SuperArray(int a) {
 	data = new String[a];
     }
-    
-    public void Swap(String s1, String s2) {
-	String temp = s1;
-	s1 = s2;
-	s2 = temp;
-    }
 
     public String toString() {
 	String x = ""; //x = "["
@@ -30,28 +24,40 @@ public class SuperArray {
 	return "["+x+data[data.length-1]+"]";
     }
 
-    public boolean add(String j) {
-	int len = data.length;
-	if (size() == len) len++;
-	String[] newData = new String[len];
-	for (int ind = 0; ind < len; ind++) {
-	    newData[ind] = data[ind];
+
+    public void Grow(){
+	String[] grow = new String[data.length * 2];
+	for (int n = 0; n < grow.length; n++){
+	    grow[n] = "";
 	}
-	newData[size()] = j;
-	data = newData;
+	for (int x = 0; x < data.length; x++){
+	    grow[x] = data[x];
+	}
+	data = grow;
+    }
+
+    public boolean add(String s){
+	if (last < data.length - 1){
+	    data[last + 1] = s;
+	} else {
+	    Grow();
+	    data[last + 1] = s;
+	}
+	last++;
 	return true;
     }
-    /*
+    
     public int size() {
-	int result = 0;
-	boolean nc = false;
-	for (int i = data.length - 1; i >= 0; i--) {
-	    if (data[ind] != null) nc = true;
-	    if (nc) result++;
+	int count = 0;
+	for (int o = data.length - 1; o > -1; o--){
+	    if (!data[o].equals("")){
+		break;
+	    }
+	    count++;
 	}
-	return result;
+	return data.length - count;
     }
-    */
+
     /*
     public boolean add(String i) {
 	if (last >= data.length-1) {
@@ -98,10 +104,11 @@ public class SuperArray {
 	last++;
     }
     */
+    /*
     public int size() {
 	return last + 1;
     }
-
+    */
     public String get(int index) {
 	return data[index];
     }
@@ -148,16 +155,17 @@ public class SuperArray {
 	for (i = 0; i < data.length-1; i++) {
 	    min = i;
 	    for (j = i + 1; j < data.length; j++) {
-		if (data[j].compareTo(data[min]) > 0) {
+		if (data[j].compareTo(data[min]) < 0) {
 		    min = j;
 		}
 	    }
 	    if (min != i) {
-		Swap(data[i], data[min]);
+		String wait = data[i];
+		data[i] = data[min];
+		data[min] = wait;
 	    }
 	}
-    }
-	
+    }	
 
     public static void main(String[] args) {
 	SuperArray s = new SuperArray();
@@ -175,12 +183,14 @@ public class SuperArray {
 	System.out.println(Arrays.toString(s.data));
 	*/
 	s.add("A");
+	System.out.println(s.toString());
 	s.add("B");
 	s.add("D");
+	System.out.println(s.toString());
 	s.add("E");
 	s.add("C");
 	s.ssort();
-	System.out.println(s.toString());
+        System.out.println(Arrays.toString(s.data));
 
     }
 }
