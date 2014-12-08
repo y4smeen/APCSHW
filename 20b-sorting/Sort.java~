@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-class Sort {
+public class Sort {
 
     int[] data;
     int[] copy;
@@ -65,12 +65,7 @@ class Sort {
     }
 
     public void builtin() {
-	//assumes array is full (no nulls)
-	//if u want to sort only part of it
-	//use Arrays.sort(data,start,stop)
-	//which sorts from start (inclusive) to stop (exclusive)
 	Arrays.sort(data);
-	//Arraylists --> Collections.sort(list)
     }
 
     public String toString() {
@@ -84,8 +79,7 @@ class Sort {
     public static void main(String[] args) {
 	Sort s = new Sort();
 	System.out.println(s);
-	s.isort();
-	//s.builtin();
+	s.builtin();
 	System.out.println(s);
     }
 
