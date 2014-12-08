@@ -1,5 +1,5 @@
 SORTING TRIAL TIMES
-<br>
+<p>
 Selection:
 <ul>
   1. user 0.057s
@@ -8,7 +8,7 @@ Selection:
 <ul>
   3. user 0.054s
 </ul>
-<br>
+<p>
 Insertion:
 <ul>
   1. user 0.057s
