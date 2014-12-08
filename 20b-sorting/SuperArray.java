@@ -150,11 +150,11 @@ public class SuperArray {
     */
     //selection sort
     public void ssort() {
-	int i,j;
-	int min;
-	for (i = 0; i < data.length-1; i++) {
+	int i,j,min;
+	int len = data.length;
+	for (i = 0; i < len-1; i++) {
 	    min = i;
-	    for (j = i + 1; j < data.length; j++) {
+	    for (j = i + 1; j < len; j++) {
 		if (data[j].compareTo(data[min]) < 0) {
 		    min = j;
 		}
@@ -166,6 +166,24 @@ public class SuperArray {
 	    }
 	}
     }	
+
+    public void bsort() {
+	int len = data.length;
+	//boolean swap = false;
+	int i;
+	while (len != 0) {
+	    for (i = 1; i < len-1; i++) {
+		int len2 = 0;
+		if (data[i-1].compareTo(data[i]) > 0) {
+		    String wait = data[i];
+		    data[i] = data[i-1];
+		    data[i-1] = wait;
+		    len2 = i;
+		    //swap = true;
+		}
+	    }
+	}
+    }
 
     public static void main(String[] args) {
 	SuperArray s = new SuperArray();
@@ -189,7 +207,7 @@ public class SuperArray {
 	System.out.println(s.toString());
 	s.add("E");
 	s.add("C");
-	s.ssort();
+	s.bsort();
         System.out.println(Arrays.toString(s.data));
 
     }
