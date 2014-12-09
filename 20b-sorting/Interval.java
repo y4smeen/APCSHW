@@ -1,6 +1,8 @@
-import java.util.*, java.io.*;
+import java.util.*;
+import java.io.*;
 
 public class Interval {
+    public static final double PI = 3.14;
     private Random r = new Random();
     private int low, high;
     private int numIntervals = 0;
@@ -16,13 +18,13 @@ public class Interval {
     }
 
     public Interval() {
-	h = r.nextInt(100);
-	l = r.nextInt(high);
+	int h = r.nextInt(100);
+	int l = r.nextInt(h);
 	setup(l,h);
     }
 
     public String toString() {
-	String s = "Interval Number: " + numIntervals + "[" + low + ", " + high + "]";
+	String s = "Interval Number: " + numIntervals + " --> [" + low + ", " + high + "]";
 	return s;
     }
 
