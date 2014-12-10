@@ -14,6 +14,7 @@ public class Mage extends baseChar{
 	setDef(2);
 	setMana(7);
     }
+
     /* public Boolean runAway(){
 	//0-9
 	Random a = new Random();

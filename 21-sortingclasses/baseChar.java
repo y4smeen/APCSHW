@@ -1,5 +1,5 @@
 import java.util.*;
-public class baseChar{
+public class baseChar implements Comparable {
     private String name="DEFAULT";
     private int Health=30;
     private int attack=5;
@@ -73,5 +73,8 @@ public class baseChar{
     public void setMana(int m){
 	this.mana=m;
     }
-
+    public int compareTo(Object other) {
+	baseChar o = (baseChar)other;
+	return (this.health * 100 + this.mana) - (o.health * 100 + o.mana);
+    }
 }
