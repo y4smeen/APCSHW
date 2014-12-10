@@ -1,6 +1,26 @@
 import java.util.*;
 import java.io.*;
 
+/*
+interfaces: a contract (in java) that specifies that a class will 
+implement certain methods with certain signatures
+
+interface name {
+  method1_signature;
+  method2_signature;
+}
+
+method signature is: public/private return_type name(params);
+ex: the built in java comparable interface:
+interface Comparable {
+  public int compareTo(Object other);
+}
+to agree to implement an interface use "implements"
+ex:
+class myClass implements Comparable {
+  // class definitions here
+}
+*/
 public class Interval {
     public static final double PI = 3.14;
     private Random r = new Random();
@@ -32,8 +52,17 @@ public class Interval {
 	System.out.println("Stuff");
     }
 
-    public int compareTo(Interval other) {
-	return (this.high - this.low) - (other.high - other.low);
+    public int compareTo(Object other) {
+	//create a local variable and cast and assign the parameter
+	Interval o = (Interval)other;
+	/*
+	if (this.low == o.low) {
+	    return this.high - o.high;
+	} else {
+	    return this.low - o.low;
+	}
+	*/
+	return (this.high - this.low) - (o.high - o.low);
     }
 
     public static void main(String[] args) {

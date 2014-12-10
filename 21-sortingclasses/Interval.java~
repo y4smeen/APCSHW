@@ -48,27 +48,6 @@ public class Interval {
 	printStuff();
 	Interval.printStuff();//calling off the class, like Math.sqrt
 	Interval x = new Interval();
-	x.printStuff();//we can also call off an instance]
-
-	Interval[] a = new Interval[10];
-	for (int i = 0; i < a.length; i++) {
-	    a[i] = new Interval();
-	}
-	System.out.println(Arrays.toString(a));
-	String[] sa = {"frog","toad","iguana","komono dragon","bearded lizard"};
-	System.out.println(Arrays.toString(sa));
-	Arrays.sort(sa);
-	System.out.println(Arrays.toString(sa));
-
-	int[] ia = {20,1,55,100,33,201};
-	System.out.println(Arrays.toString(ia));
-	Arrays.sort(ia);
-	System.out.println(Arrays.toString(ia));
-
-	System.out.println(Arrays.toString(a));
-	Arrays.sort(a);
-	System.out.println(Arrays.toString(a));
-
-
+	x.printStuff();//we can also call off an instance
     }
 }
