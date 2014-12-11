@@ -8,7 +8,7 @@ public class baseChar implements Comparable {
     private int mana=0;
     public baseChar(String s){
     	name = s;
-     }
+    }
     
     public baseChar(){
 	name="bob";

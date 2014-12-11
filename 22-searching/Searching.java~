@@ -1,0 +1,27 @@
+import java.util.*;
+import java.io.*;
+
+public class Searching {
+    Comparable[] a;
+
+    public void additem() {
+	Comparable[] b;
+    }
+
+    public void Sort() {
+    }
+
+    public static Object lsearch(Comparable item) {
+    }
+
+    public static Object bsearch(Comparable item) {
+    }
+
+    public static Object rbsearch(Comparable item) {
+    }
+
+    public static void main(String[] args) {
+    }
+
+
+}
