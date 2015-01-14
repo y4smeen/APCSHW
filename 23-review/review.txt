@@ -4,3 +4,4 @@ https://github.com/psydeolite/ap-final/blob/master/Synth.java
 - you still need documentation
 - it's interesting how you put everything into one file; is there a reason for that?
 246: i don't think your record button works
+115, 145: what do those variables mean? you should name variables that describe what they're used for
