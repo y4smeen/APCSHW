@@ -3,5 +3,6 @@ https://github.com/psydeolite/ap-final/blob/master/Synth.java
 173: what is the changing colors supposed to mean? sometimes it turned part of the keyboard blue when I tested it
 - you still need documentation
 - it's interesting how you put everything into one file; is there a reason for that?
-246: i don't think your record button works
 115, 145: what do those variables mean? you should name variables that describe what they're used for
+122, 127: capitalize K in key
+150: I don't know if the pitch works b/c it sounded weird when I tried it
